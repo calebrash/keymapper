@@ -1,3 +1,7 @@
+// keymapper.js
+// Copyright (c) 2012 Caleb Rash
+// Licensed under the MIT License
+
 (function($) {
 	Array.prototype.compare = function(arr) {
 		if(this.length != arr.length) {
