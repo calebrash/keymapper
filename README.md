@@ -58,7 +58,7 @@ $.keys.map(99999);
 // returns false
 ```
 
-### $.keys.revers(keyname)
+### $.keys.reverse(keyname)
 
 ```javascript
 $.keys.reverse('shift');
