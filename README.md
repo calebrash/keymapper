@@ -1,10 +1,10 @@
 #Keymapper JS
 
-Keymapper allows you to easily map JavaScript functions to keystroke and sets of keystrokes. Keymapper was created to ease the pain of tying actions to keystrokes and to provide a uniform way of creating keyboard shortcuts for web apps.
+Keymapper allows you to easily map JavaScript functions to keystrokes and sets of keystrokes. Keymapper was created to ease the pain of tying actions to keystrokes and to provide a uniform way of creating keyboard shortcuts for web apps.
 
 Additionally, Keymapper offers utility functions for converting keyboard integer codes to more understandable terms and reverting letters, numbers, or verbose keystroke names to their respective integer codes.
 
-Keymapper is written as a jQuery plugin.
+Keymapper is a jQuery plugin.
 
 ## The keymapper function
 
