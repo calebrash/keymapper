@@ -1,8 +1,44 @@
 // keymapper.js
-// Copyright (c) 2012 Caleb Rash
+// Copyright (c) 2012 Caleb Rash except where noted
 // Licensed under the MIT License
 
-(function($) {
+// Array.indexOf of support adapted from Mozilla Developer Network
+// https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (se) {
+        "use strict";
+        if (this == null) {
+            throw new TypeError();
+        }
+        var t = Object(this);
+        var l = t.length >>> 0;
+        if (l === 0) {
+            return -1;
+        }
+        var n = 0;
+        if (arguments.length > 0) {
+            n = Number(arguments[1]);
+            if (n != n) {
+                n = 0;
+            } else if (n != 0 && n != Infinity && n != -Infinity) {
+                n = (n > 0 || -1) * Math.floor(Math.abs(n));
+            }
+        }
+        if (n >= l) {
+            return -1;
+        }
+        var k = n >= 0 ? n : Math.max(l - Math.abs(n), 0);
+        for (; k < l; k++) {
+            if (k in t && t[k] === se) {
+                return k;
+            }
+        }
+        return -1;
+    }
+}
+
+
+(function($) {	
 	Array.prototype.compare = function(arr) {
 		if(this.length != arr.length) {
 			return false;
@@ -28,10 +64,7 @@
 			}
 		});
 		r = r.sort();
-		$.each(r, function(i, v) {
-			result += v.toString() + '_';
-		});
-		return result.substring(0, result.length-1);
+		return r.join('_');
 	};
 
 	$.keys = {
