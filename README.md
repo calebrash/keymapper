@@ -77,8 +77,8 @@ $(selector).keyup(function(e){
 ```
 ## Outstanding Issues
 - Windows (and Linux?) support
--- Should only need more or remapped keys
+	- Should only need more or remapped keys
 - Need to limit callbacks in some way
--- If you hold down whatever keys, the callbacks will continuously fire
--- They should only fire once
+	- If you hold down whatever keys, the callbacks will continuously fire
+	- They should only fire once
 
