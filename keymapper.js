@@ -1,9 +1,10 @@
-// keymapper.js
+// keymapper.js 1.1.1
 // Copyright (c) 2012 Caleb Rash except where noted
 // Licensed under the MIT License
 
 // Array.indexOf of support adapted from Mozilla Developer Network
 // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf
+
 if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function (se) {
         "use strict";
@@ -279,6 +280,3 @@ if (!Array.prototype.indexOf) {
 		}
 	};
 })(jQuery)
-
-
-
