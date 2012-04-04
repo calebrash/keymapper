@@ -239,24 +239,17 @@ if (!Array.prototype.indexOf) {
 			down: ondown,
 			up: onup
 		};
-		var should_bind = true;
-		var ev = typeof $(this).data('events') != 'undefined' ? $(this).data('events') : {};
-		var el = typeof ev.keydown != 'undefined' ? ev.keydown : [];
-		$.each(el, function(i, v) {
-			if(v.namespace == 'keymapper') {
-				should_bind = false;
-				return false;
-			}
-		});
+		var ev = typeof $(this).data('events') != 'undefined' ? $(this).data('events') : {},
+			should_bind = typeof ev.keymapper_event_down == 'undefined';
 		if(should_bind) {
-			$(this).bind('keydown.keymapper', function(e) {
-				var key = e.which == $.keys.r.rcommand ? $.keys.r.command : e.which;
+			$(this).on('keydown.keymapper keymapper_event_down', function(e) {
+				var key = e.which == $.keys.r.rcommand ? $.keys.r.command : e.which,
+					ek = $.keys.a.keyify(true),
+					t = [];
 				if($.keys.a.indexOf(key) == -1) {
 					$.keys.a.push(key);
 				}
 				$.keys.command_active = $.keys.a.indexOf($.keys.r.command) !== -1;
-				var ek = $.keys.a.keyify(true);
-				var t = [];
 				$.each(ek.split('_'), function(i,v) {
 					t.push(parseInt(v));
 				});
@@ -266,9 +259,9 @@ if (!Array.prototype.indexOf) {
 					$.keys.c[ek].down();
 				}
 			});
-			$(this).bind('keyup.keymapper', function(e) {
-				var i = $.keys.a.indexOf(e.which);
-				var ek = $.keys.a.keyify(true);
+			$(this).on('keyup.keymapper keymapper_event_down', function(e) {
+				var i = $.keys.a.indexOf(e.which),
+					ek = $.keys.a.keyify(true);
 				if(i !== -1) {
 					$.keys.a.splice(i, 1);
 				}
