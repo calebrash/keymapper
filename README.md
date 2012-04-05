@@ -82,12 +82,5 @@ Getting involved is pretty low-stress. Here's how to jump in:
 
 If you see something sketchy or think of something that you wish was within the capabilities of this plugin, add it as an issue. If you would like to help out, try tackling an open issue.
 
-NOTE: All open issues have been moved to this Issues tab
-- Windows (and Linux?) support
-	- Should only need more or remapped keys
-	- Need simple way to detect and branch for OS differences
-	- needs to be arbitrary, unobtrusive, and configurable (if windows|linux: use control, else: command)
-- ~~Need to limit callbacks in some way~~ (as of 0.3.0)
-	- ~~If you hold down whatever keys, the callbacks will continuously fire~~
-	- ~~They should only fire once~~
+NOTE: All open issues have been moved to the Issues tab
 
