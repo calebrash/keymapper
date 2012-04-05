@@ -1,4 +1,4 @@
-// keymapper.js 1.1.1
+// keymapper.js 0.2.1
 // Copyright (c) 2012 Caleb Rash except where noted
 // Licensed under the MIT License
 
@@ -37,7 +37,6 @@ if (!Array.prototype.indexOf) {
         return -1;
     }
 }
-
 
 (function($) {	
 	Array.prototype.compare = function(arr) {
@@ -240,16 +239,24 @@ if (!Array.prototype.indexOf) {
 			down: ondown,
 			up: onup
 		};
-		var ev = typeof $(this).data('events') != 'undefined' ? $(this).data('events') : {},
-			should_bind = typeof ev.keymapper_event_down == 'undefined';
+		var ev = typeof $._data($(this).get(0), 'events') != 'undefined' ? $._data($(this).get(0), 'events') : {},
+			el = typeof ev.keydown != 'undefined' ? ev.keydown : [],
+			should_bind = true;
+		$.each(el, function(i,v) {
+			if(v.namespace == 'keymapper') {
+				should_bind = false;
+				return false;
+			}
+		});
 		if(should_bind) {
-			$(this).on('keydown.keymapper keymapper_event_down', function(e) {
+			$(this).on('keydown.keymapper', function(e) {
 				var key = e.which == $.keys.r.rcommand ? $.keys.r.command : e.which,
-					ek = $.keys.a.keyify(true),
+					ek = false,
 					t = [];
 				if($.keys.a.indexOf(key) == -1) {
 					$.keys.a.push(key);
 				}
+				ek = $.keys.a.keyify(true);
 				$.keys.command_active = $.keys.a.indexOf($.keys.r.command) !== -1;
 				$.each(ek.split('_'), function(i,v) {
 					t.push(parseInt(v));
@@ -260,7 +267,7 @@ if (!Array.prototype.indexOf) {
 					$.keys.c[ek].down();
 				}
 			});
-			$(this).on('keyup.keymapper keymapper_event_down', function(e) {
+			$(this).on('keyup.keymapper', function(e) {
 				var i = $.keys.a.indexOf(e.which),
 					ek = $.keys.a.keyify(true);
 				if(i !== -1) {
