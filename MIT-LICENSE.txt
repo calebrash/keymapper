@@ -1,3 +1,4 @@
+Keymapper-JS, 0.3.0
 Copyright (c) 2012 Caleb Rash
 
 Permission is hereby granted, free of charge, to any person 
