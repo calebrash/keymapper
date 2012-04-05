@@ -1,4 +1,4 @@
-// keymapper.js 0.2.1
+// keymapper.js 0.3.0
 // Copyright (c) 2012 Caleb Rash except where noted
 // Licensed under the MIT License
 
@@ -261,7 +261,7 @@ if (!Array.prototype.indexOf) {
 				$.each(ek.split('_'), function(i,v) {
 					t.push(parseInt(v));
 				});
-				if(typeof $.keys.c[ek] != 'undefined' && $.keys.a.compare(t)) {
+				if(!$.keys.active && typeof $.keys.c[ek] != 'undefined' && $.keys.a.compare(t)) {
 					e.preventDefault();
 					$.keys.active = true;
 					$.keys.c[ek].down();
