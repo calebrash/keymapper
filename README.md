@@ -6,7 +6,7 @@ Additionally, Keymapper offers utility functions for converting keyboard integer
 
 Keymapper is a jQuery plugin.
 
-Version: 0.3.0
+Version: 0.4.0
 
 ## The keymapper function
 

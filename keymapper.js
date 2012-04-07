@@ -1,4 +1,4 @@
-// keymapper.js 0.3.0
+// keymapper.js 0.4.0
 // Copyright (c) 2012 Caleb Rash except where noted
 // Licensed under the MIT License
 
