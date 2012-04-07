@@ -40,33 +40,31 @@ if (!Array.prototype.indexOf) {
 
 (function($) {	
 	Array.prototype.compare = function(arr) {
-		if(this.length != arr.length) {
+		if (this.length != arr.length) {
 			return false;
 		}
-		var success = true;
-		$.each(this, function(i, v) {
-			if(arr.indexOf(v) == -1) {
+		var success = true, l = this.length, i = 0;
+		for(i; i<l; i++) {
+			if(arr.indexOf(this[i]) == -1) {
 				success = false;
-				return false;
+				break;
 			}
-		});
+		}
 		return success;
 	};
 	Array.prototype.keyify = function(converted) {
 		converted = typeof converted == 'boolean' ? converted : false;
-		var r = [];
-		var result = '';
-		$.each(this, function(i, v) {
-			if(converted) {
-				r.push(v.toString());
+		var r = [], i = 0, l = this.length;
+		for(i; i<l; i++) {
+			if (converted) {
+				r.push(this[i].toString());
 			} else {
-				r.push($.keys.reverse(v).toString());
+				r.push($.keys.reverse(this[i]).toString());
 			}
-		});
-		r = r.sort();
-		return r.join('_');
+		}
+		return r.sort().join('_');
 	};
-
+	
 	$.keys = {
 		map: function(k) {
 			if(typeof this.l[k] == 'undefined') {
