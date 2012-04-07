@@ -64,7 +64,7 @@ if (!Array.prototype.indexOf) {
 		}
 		return r.sort().join('_');
 	};
-	
+
 	$.keys = {
 		map: function(k) {
 			if(typeof this.l[k] == 'undefined') {
@@ -239,13 +239,15 @@ if (!Array.prototype.indexOf) {
 		};
 		var ev = typeof $._data($(this).get(0), 'events') != 'undefined' ? $._data($(this).get(0), 'events') : {},
 			el = typeof ev.keydown != 'undefined' ? ev.keydown : [],
-			should_bind = true;
-		$.each(el, function(i,v) {
-			if(v.namespace == 'keymapper') {
+			should_bind = true,
+			i = 0,
+			l = el.length;
+		for(i; i<l; i++) {
+			if(el[i].namespace == 'keymapper') {
 				should_bind = false;
-				return false;
+				break;
 			}
-		});
+		}
 		if(should_bind) {
 			$(this).on('keydown.keymapper', function(e) {
 				var key = e.which == $.keys.r.rcommand ? $.keys.r.command : e.which,
