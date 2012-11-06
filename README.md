@@ -77,10 +77,3 @@ $(selector).keyup(function(e){
 	}
 });
 ```
-## Getting involved
-Getting involved is pretty low-stress. Here's how to jump in:
-
-If you see something sketchy or think of something that you wish was within the capabilities of this plugin, add it as an issue. If you would like to help out, try tackling an open issue.
-
-NOTE: All open issues have been moved to the Issues tab
-
